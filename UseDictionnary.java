@@ -39,6 +39,8 @@ class UseDictionnary {
         catch (FileNotFoundException e) {
             return;
         }
+        System.out.println("Total number of words in text: "+ dictionnary.getTotalLength());
+        System.out.println("Count of different words loaded: "+ dictionnary.getLength());
 
         while (true) {
             System.out.println("Type Q anytime you want to quit");

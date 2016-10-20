@@ -1,4 +1,6 @@
 class Trie {
+    private int length = 0;
+    private int totalLength = 0;
     private ElementTrie first = new ElementTrie();
 
     public String insertWord(String word){
@@ -9,7 +11,13 @@ class Trie {
             }
             child = child.getAlphabet()[ElementTrie.letterToIndex(word.charAt(i))];
         }
-        child.isWord = true;
+
+        if (! child.isWord){
+            this.length += 1;
+            child.isWord = true;
+        }
+
+        this.totalLength += 1;
         return word;
     }
 
@@ -33,5 +41,13 @@ class Trie {
 
         return false;
 
+    }
+
+    public int getLength(){
+        return this.length;
+    }
+
+    public int getTotalLength(){
+        return this.totalLength;
     }
 }
